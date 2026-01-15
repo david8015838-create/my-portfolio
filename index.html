@@ -143,34 +143,62 @@
     <section id="certs" class="py-32 px-6">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-5xl font-title font-bold italic mb-16 reveal">Recognition.</h2>
-            <div class="space-y-4">
-                <div class="reveal glass p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold">TOEIC 多益英語測驗 (870分)</h4>
-                        <p class="text-slate-500 text-xs">語言能力證明</p>
+            
+            <div class="space-y-6">
+                <!-- Google 證照區塊 -->
+                <div class="reveal">
+                    <h3 class="text-cyan-500 text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Google Professional Certificates</h3>
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Google Data Analytics</h4>
+                                <p class="text-slate-500 text-xs">數據分析專業證照</p>
+                            </div>
+                            <button onclick="openApp('Google Data Analytics', 'google_analytics.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Google Project Management</h4>
+                                <p class="text-slate-500 text-xs">專案管理專業證照</p>
+                            </div>
+                            <button onclick="openApp('Google Project Management', 'google_project_management.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
                     </div>
-                    <button onclick="openApp('多益成績單', 'toeic.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
                 </div>
-                <div class="reveal glass p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold">初階授信人員專業能力測驗</h4>
-                        <p class="text-slate-500 text-xs">台灣金融研訓院</p>
+
+                <!-- 金融與語言區塊 -->
+                <div class="reveal">
+                    <h3 class="text-slate-500 text-[10px] font-bold tracking-[0.3em] uppercase mb-4">Professional & Language</h3>
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">TOEIC 多益英語測驗 (870分)</h4>
+                                <p class="text-slate-500 text-xs">語言能力證明</p>
+                            </div>
+                            <button onclick="openApp('多益成績單', 'toeic.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">初階授信人員專業能力測驗</h4>
+                                <p class="text-slate-500 text-xs">台灣金融研訓院</p>
+                            </div>
+                            <button onclick="openApp('初階授信證照', 'credit.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">信託業務人員專業測驗</h4>
+                                <p class="text-slate-500 text-xs">台灣金融研訓院</p>
+                            </div>
+                            <button onclick="openApp('信託業務證照', 'trust.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
+                        <div class="glass p-6 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">銀行內部控制與內部稽核</h4>
+                                <p class="text-slate-500 text-xs">台灣金融研訓院</p>
+                            </div>
+                            <button onclick="openApp('銀行內控證照', 'audit.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
+                        </div>
                     </div>
-                    <button onclick="openApp('初階授信證照', 'credit.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
-                </div>
-                <div class="reveal glass p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold">信託業務人員專業測驗</h4>
-                        <p class="text-slate-500 text-xs">台灣金融研訓院</p>
-                    </div>
-                    <button onclick="openApp('信託業務證照', 'trust.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
-                </div>
-                <div class="reveal glass p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold">銀行內部控制與內部稽核</h4>
-                        <p class="text-slate-500 text-xs">台灣金融研訓院</p>
-                    </div>
-                    <button onclick="openApp('銀行內控證照', 'audit.jpg')" class="px-6 py-2 rounded-full border border-white/10 text-xs hover:bg-white hover:text-black transition-all">查看</button>
                 </div>
             </div>
         </div>
@@ -199,7 +227,7 @@
                 modalImg.classList.remove('hidden');
                 modalImg.onload = () => loader.style.display = 'none';
                 modalImg.onerror = () => {
-                    loader.innerHTML = '<div class="text-center"><p class="text-red-400">找不到圖片檔案</p><p class="text-[10px] text-slate-500 mt-2">請確認 GitHub 上檔名為: ' + url + '</p></div>';
+                    loader.innerHTML = '<div class="text-center p-8"><i class="fas fa-exclamation-triangle text-amber-500 mb-4 text-2xl"></i><p class="text-white text-sm mb-2">無法載入證照圖片</p><p class="text-[10px] text-slate-500">請確認 GitHub 根目錄檔名為：<br><span class="text-cyan-400 font-mono">' + url + '</span></p></div>';
                 };
             } else {
                 frame.src = url;
