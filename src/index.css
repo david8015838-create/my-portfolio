@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050505;
+  --accent: #06b6d4;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.6;
+}
+
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.soft-shadow {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .bento {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.fade-in.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
