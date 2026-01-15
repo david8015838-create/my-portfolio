@@ -158,7 +158,6 @@
             <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
         </div>
         <div class="flex items-center space-x-4">
-            <!-- 修改點：導航欄 Let's Talk 改為 mailto -->
             <a href="mailto:david8015838@gmail.com" class="text-xs font-bold px-5 py-2 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 transition-all hidden md:block">Let's Talk</a>
             <div class="md:hidden text-cyan-400" onclick="document.querySelector('.mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars"></i></div>
         </div>
@@ -277,7 +276,7 @@
                             <h4 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors">Google Data Analytics Professional Certificate</h4>
                             <p class="text-slate-500 text-xs mt-2 font-light uppercase tracking-widest">Google Career Certificates (Coursera)</p>
                         </div>
-                        <button onclick="openApp('Google 數據分析證照', 'google analytics.JPG')" class="w-fit px-8 py-3 rounded-full glass border-white/10 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition-all">
+                        <button onclick="openApp('Google 數據分析證照', 'google_analytics.jpg')" class="w-fit px-8 py-3 rounded-full glass border-white/10 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition-all">
                             Verify Document
                         </button>
                     </div>
@@ -287,7 +286,7 @@
                             <h4 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors">Google Project Management Professional Certificate</h4>
                             <p class="text-slate-500 text-xs mt-2 font-light uppercase tracking-widest">Google Career Certificates (Coursera)</p>
                         </div>
-                        <button onclick="openApp('Google 專案管理證照', 'google project management.JPG')" class="w-fit px-8 py-3 rounded-full glass border-white/10 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition-all">
+                        <button onclick="openApp('Google 專案管理證照', 'google_project_management.jpg')" class="w-fit px-8 py-3 rounded-full glass border-white/10 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition-all">
                             Verify Document
                         </button>
                     </div>
@@ -366,18 +365,14 @@
         <div class="reveal max-w-4xl mx-auto z-10 relative">
             <h2 class="text-7xl md:text-[130px] font-title font-bold mb-20 italic tracking-tighter leading-none">Let's Talk.</h2>
             <div class="flex flex-col items-center gap-8">
-                <!-- 主要聯絡電話 -->
                 <a href="tel:0961570082" class="group text-3xl md:text-6xl font-title font-bold hover:text-cyan-400 transition-all inline-flex items-center">
                     0961 570 082 
                     <i class="fas fa-arrow-up-right-from-square text-lg ml-6 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all"></i>
                 </a>
                 
-                <!-- 副標題 -->
                 <p class="text-slate-500 uppercase tracking-[0.4em] text-[10px] font-bold mt-12 mb-4">Taipei, Taiwan based</p>
                 
-                <!-- 社交與信箱連結 -->
                 <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold uppercase tracking-widest">
-                    <!-- 修改點：使用 mailto 協定直接啟動郵件 -->
                     <a href="mailto:david8015838@gmail.com" class="text-slate-400 hover:text-white flex items-center group transition-colors">
                         <i class="far fa-envelope mr-3 text-cyan-500 group-hover:scale-110 transition-transform"></i>
                         Gmail
@@ -393,7 +388,6 @@
                 </div>
             </div>
         </div>
-        <!-- 裝飾文字 -->
         <div class="absolute -bottom-10 left-0 right-0 text-[200px] font-title font-bold text-white/[0.02] whitespace-nowrap pointer-events-none select-none italic">
             DREAM BIG WORK HARD DREAM BIG WORK HARD
         </div>
@@ -405,7 +399,6 @@
     </footer>
 
     <script>
-        // 1. 滑鼠跟隨平滑化
         const glow = document.getElementById('cursor-glow');
         let mouseX = 0, mouseY = 0;
         let glowX = 0, glowY = 0;
@@ -424,7 +417,6 @@
         }
         animateGlow();
 
-        // 2. 彈出視窗控制邏輯
         const modal = document.getElementById('app-modal');
         const frame = document.getElementById('app-frame');
         const modalImg = document.getElementById('modal-img');
@@ -435,6 +427,7 @@
             modalTitle.innerText = title;
             loader.style.display = 'flex';
             
+            // 修正：更精確判斷圖片格式，包含大寫 JPG
             const isImage = url.toLowerCase().match(/\.(jpg|jpeg|png|gif|webp)$/);
             
             modalImg.classList.add('hidden');
@@ -445,7 +438,7 @@
                 modalImg.classList.remove('hidden');
                 modalImg.onload = () => loader.style.display = 'none';
                 modalImg.onerror = () => {
-                    loader.innerHTML = '<div class="text-center px-10"><i class="fas fa-image text-3xl mb-4 text-slate-700"></i><p class="text-slate-500 text-xs">Asset link ready. Image will be displayed upon local hosting.</p><p class="mt-2 text-[10px] text-cyan-500/50 uppercase tracking-widest">' + url + '</p></div>';
+                    loader.innerHTML = '<div class="text-center px-10"><i class="fas fa-image text-3xl mb-4 text-slate-700"></i><p class="text-slate-500 text-xs font-bold mb-2">圖片讀取失敗</p><p class="text-slate-600 text-[10px]">請確認 GitHub 根目錄中有這張圖：</p><code class="mt-2 block bg-white/5 p-2 rounded text-[10px] text-cyan-500/80">' + decodeURIComponent(url) + '</code></div>';
                 };
             } else {
                 frame.src = url;
@@ -487,12 +480,9 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        let lastScroll = 0;
         const nav = document.getElementById('main-nav');
-
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
             if (currentScroll > 100) {
                 nav.classList.add('py-3', 'w-[95%]', 'mt-2');
                 nav.classList.remove('py-4', 'w-[90%]', 'mt-6');
@@ -500,7 +490,6 @@
                 nav.classList.remove('py-3', 'w-[95%]', 'mt-2');
                 nav.classList.add('py-4', 'w-[90%]', 'mt-6');
             }
-            lastScroll = currentScroll;
         });
     </script>
 </body>
